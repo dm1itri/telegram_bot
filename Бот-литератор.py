@@ -22,7 +22,7 @@ def start(update, context):
 def user_response(update, context):
     # Это ответ на первый вопрос.
     # Мы можем использовать его во втором вопросе.
-    with open('письмо_татьяны', 'r', encoding='utf-8') as f:
+    with open('секретный_текст_литератора', 'r', encoding='utf-8') as f:
         n = context.user_data['line_number']
         t = f.read().split('\n')
         if t[n - 1] == update.message.text:
@@ -49,7 +49,7 @@ def suphler(update, context):
     if n >= 78:
         update.message.reply_text('Было приятно иметь с Вами дело!')
         return ConversationHandler.END
-    with open('письмо_татьяны', 'r', encoding='utf-8') as f:
+    with open('секретный_текст_литератора', 'r', encoding='utf-8') as f:
         t = f.read().split('\n')[n - 1]
     update.message.reply_text(t, reply_markup=ReplyKeyboardRemove())
     context.user_data['line_number'] += 1
